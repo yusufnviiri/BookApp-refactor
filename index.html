@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awesome books refactored</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main>
+      <h1>All awesome books</h1>
+
+      <section class="book-list">
+        <div class="book-one">
+          <p>"Title" by <span>Author</span></p>
+          <button type="button">Remove</button>
+        </div>
+        <div class="book-two">
+          <p>"Title" by <span>Author</span></p>
+          <button type="button">Remove</button>
+        </div>
+      </section>
+
+      <div class="separator"></div>
+
+      <form>
+        <h2>Add a new book</h2>
+        <input type="text" id="title" />
+        <input type="text" id="author" />
+        <button type="submit" id="add-book">Add</button>
+      </form>
+    </main>
+  </body>
+</html>
