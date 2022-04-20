@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -50,7 +51,6 @@ function addBook(bookTitle, bookAuthor) {
   showBooks();
 }
 
-// eslint-disable-next-line no-unused-vars
 function removeBook(i) {
   booksInLS.splice(i, 1);
   updateLocalStorage();
