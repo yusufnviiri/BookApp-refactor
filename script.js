@@ -50,6 +50,7 @@ function addBook(bookTitle, bookAuthor) {
   showBooks();
 }
 
+// eslint-disable-next-line no-unused-vars
 function removeBook(i) {
   booksInLS.splice(i, 1);
   updateLocalStorage();
@@ -64,10 +65,6 @@ form.addEventListener('submit', (e) => {
   const author = document.querySelector('#author');
 
   addBook(title.value, author.value);
-});
-const removeBtn = document.querySelector('.remove-btn');
-removeBtn.addEventListener('click', (e) => {
-  removeBook(e);
 });
 
 window.onload = showBooks();
