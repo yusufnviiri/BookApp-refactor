@@ -3,6 +3,10 @@ main {
   margin: auto;
 }
 
+li {
+  list-style: none;
+}
+
 .separator {
   width: 30%;
   background-color: black;
@@ -13,23 +17,17 @@ main {
 }
 
 .book-list {
-  border: 2px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border: 2px solid black;
 }
 
 .book-one {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(163, 157, 157);
+  background-color: #fff;
   width: 100%;
-}
-
-.book-two {
-  display: flex;
-  justify-content: space-between;
-  background-color: white;
 }
 
 button {

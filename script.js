@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable no-unused-vars */
-// books class
+
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -8,68 +8,67 @@ class Book {
   }
 }
 
-// UI class :handle UI
-
-const mainContainer = document.querySelector('.book-list');
-
-class UI {
-  static displayBooks() {
-    const storedBooks = [{
-      title: 'Book One',
-      auther: 'John Doe',
-    },
-    {
-      title: 'Book Two',
-      author: 'Jane Doe',
-    }];
-    const bookstored = storedBooks;
-    bookstored.forEach((book) => UI.addBookToList(book));
-  }
-
-  static addBookToList(bookstored) {
-    const list = document.querySelector('.book-list');
-    const bookRac = document.createElement('div');
-    bookRac.classList.add('book-two');
-    bookRac.innerHTML = `
-    <p>"${bookstored.title}" by <span>${bookstored.author}</span></p>
-    <button type="button" class="remove-btn">Remove</button>
-    `;
-    list.appendChild(bookRac);
-  }
-
-  static removeBook(e) {
-    if (e.classList.contains('remove-btn')) {
-      e.parentElement.remove();
-    }
-  }
-
-  static clearFields() {
-    document.querySelector('#title').value = '';
-    document.querySelector('#author').value = '';
-  }
+if (localStorage.getItem("list of Books") === null) {
+  localStorage.setItem("list of Books", JSON.stringify([]));
 }
-// store class
-// Event  to display
-document.addEventListener('DOMContentLoaded', UI.displayBooks);
-// Event to display nothing
 
-// Event to add book to UI
+// eslint-disable-next-line prefer-const
+let booksInLS = JSON.parse(localStorage.getItem("list of Books"));
 
-document.querySelector('form').addEventListener('submit', (e) => {
+function updateLocalStorage() {
+  localStorage.setItem("list of Books", JSON.stringify(booksInLS));
+}
+
+function generateListOfBooks(arr) {
+  let items = "";
+  for (let i = 0; i < arr.length; i += 1) {
+    items += `
+      <div class="book-one">
+        <li>${arr[i].title} by ${arr[i].author}</li> <br />
+        <li><button class="remove-btn" onclick="removeBook(${i})">Remove</button></li>
+      </div>
+    `;
+  }
+  return items;
+}
+
+function clearFields() {
+  document.querySelector("#title").value = "";
+  document.querySelector("#author").value = "";
+}
+
+function showBooks() {
+  const bookList = document.querySelector(".book-list");
+  bookList.innerHTML = `
+    <h1>List of Books: </h1>
+    <br />
+    
+      ${generateListOfBooks(booksInLS)}
+    `;
+  clearFields();
+}
+
+function addBook(bookTitle, bookAuthor) {
+  const book = new Book(bookTitle, bookAuthor);
+  booksInLS.push(book);
+  updateLocalStorage();
+  showBooks();
+}
+
+function removeBook(i) {
+  booksInLS.splice(i, 1);
+  updateLocalStorage();
+  showBooks();
+}
+
+const form = document.querySelector("form");
+form.addEventListener("submit", (e) => {
   e.preventDefault();
-  // get form values
-  const title = document.querySelector('#title').value;
-  const author = document.querySelector('#author').value;
-  // instantiate book
-  const book = new Book(title, author);
 
-  // add book to UI
-  UI.addBookToList(book);
-  // clear fields
-  UI.clearFields();
-});
-// Event to remove book from UI
+  const title = document.querySelector("#title");
+  const author = document.querySelector("#author");
 
-document.querySelector('.book-list').addEventListener('click', (e) => {
-  UI.removeBook(e.target);
+  addBook(title.value, author.value);
 });
+
+window.onload = showBooks();
