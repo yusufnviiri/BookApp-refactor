@@ -1,6 +1,3 @@
-/* eslint-disable max-classes-per-file */
-/* eslint-disable no-unused-vars */
-
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -8,19 +5,18 @@ class Book {
   }
 }
 
-if (localStorage.getItem("list of Books") === null) {
-  localStorage.setItem("list of Books", JSON.stringify([]));
+if (localStorage.getItem('list of Books') === null) {
+  localStorage.setItem('list of Books', JSON.stringify([]));
 }
 
-// eslint-disable-next-line prefer-const
-let booksInLS = JSON.parse(localStorage.getItem("list of Books"));
+const booksInLS = JSON.parse(localStorage.getItem('list of Books'));
 
 function updateLocalStorage() {
-  localStorage.setItem("list of Books", JSON.stringify(booksInLS));
+  localStorage.setItem('list of Books', JSON.stringify(booksInLS));
 }
 
 function generateListOfBooks(arr) {
-  let items = "";
+  let items = '';
   for (let i = 0; i < arr.length; i += 1) {
     items += `
       <div class="book-one">
@@ -33,18 +29,17 @@ function generateListOfBooks(arr) {
 }
 
 function clearFields() {
-  document.querySelector("#title").value = "";
-  document.querySelector("#author").value = "";
+  document.querySelector('#title').value = '';
+  document.querySelector('#author').value = '';
 }
 
 function showBooks() {
-  const bookList = document.querySelector(".book-list");
-  bookList.innerHTML = `
-    <h1>List of Books: </h1>
-    <br />
-    
+  const bookList = document.querySelector('.book-list');
+
+  bookList.innerHTML = `    
       ${generateListOfBooks(booksInLS)}
     `;
+
   clearFields();
 }
 
@@ -61,14 +56,18 @@ function removeBook(i) {
   showBooks();
 }
 
-const form = document.querySelector("form");
-form.addEventListener("submit", (e) => {
+const form = document.querySelector('form');
+form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const title = document.querySelector("#title");
-  const author = document.querySelector("#author");
+  const title = document.querySelector('#title');
+  const author = document.querySelector('#author');
 
   addBook(title.value, author.value);
+});
+const removeBtn = document.querySelector('.remove-btn');
+removeBtn.addEventListener('click', (e) => {
+  removeBook(e);
 });
 
 window.onload = showBooks();

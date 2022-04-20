@@ -1,6 +1,7 @@
 main {
   width: 500px;
   margin: auto;
+  text-align: center;
 }
 
 li {
@@ -26,7 +27,8 @@ li {
 .book-one {
   display: flex;
   justify-content: space-between;
-  background-color: #fff;
+  background-color: #ddd;
+  margin-bottom: 10px;
   width: 100%;
 }
 
