@@ -1,0 +1,61 @@
+main {
+  width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+li {
+  list-style: none;
+}
+
+.separator {
+  width: 30%;
+  background-color: black;
+  height: 3px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.book-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid black;
+}
+
+.book-one {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ddd;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+button {
+  height: 40px;
+  margin-top: 10px;
+  border: 2px solid black;
+  border-bottom: 5px solid black;
+  border-right: 5px solid black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input {
+  margin-bottom: 10px;
+  width: 60%;
+  height: 30px;
+  border: 2px solid black;
+}
+
+#add-book {
+  position: relative;
+  right: -24%;
+  width: 70px;
+}
