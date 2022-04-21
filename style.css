@@ -70,10 +70,13 @@ input {
   justify-content: space-between;
   align-items: center;
   background-color: rgb(197, 197, 219);
-  margin-bottom: 10px;
   width: 100%;
   margin-right: 10px;
   border: 2px solid black;
+}
+
+header {
+  background-color: white;
 }
 
 .nav-list {
@@ -124,6 +127,11 @@ footer {
   list-style-type: disc;
   margin-right: 20px;
   padding-right: 10px;
+}
+
+.date {
+  height: 30px;
+  text-align: right;
 }
 
 @media screen and (min-width: 600px) {
