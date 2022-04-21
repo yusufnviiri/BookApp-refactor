@@ -108,6 +108,24 @@ footer {
   border: 2px solid black;
 }
 
+#contact {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: justify;
+  align-items: center;
+  font-size: larger;
+  font-family: Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 600;
+}
+
+#contact ul li {
+  list-style-type: disc;
+  margin-right: 20px;
+  padding-right: 10px;
+}
+
 @media screen and (min-width: 600px) {
   ::placeholder {
     font-size: larger;
