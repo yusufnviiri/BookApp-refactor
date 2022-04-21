@@ -1,4 +1,4 @@
-.container {
+body {
   background-color: goldenrod;
 }
 
@@ -101,6 +101,10 @@ header {
   font-size: 1.2em;
 }
 
+.nav-list li a:hover {
+  color: rgb(130, 9, 252);
+}
+
 footer {
   background-color: rgb(197, 197, 219);
   margin-bottom: 10px;
@@ -109,6 +113,8 @@ footer {
   margin-top: 30px;
   font-family: Calibri, "Trebuchet MS", sans-serif;
   border: 2px solid black;
+  position: fixed;
+  bottom: 20px;
 }
 
 #contact {
@@ -132,6 +138,9 @@ footer {
 .date {
   height: 30px;
   text-align: right;
+  padding-right: 20px;
+  padding-top: 5px;
+  font-size: large;
 }
 
 @media screen and (min-width: 600px) {

@@ -1,4 +1,14 @@
 /* eslint-disable no-unused-vars */
+
+const displayBooks = document.querySelector('#display-list');
+const displayForm = document.querySelector('#display-form');
+const contact = document.querySelector('#contact');
+const displayContact = document.querySelector('#display-contact');
+const container = document.querySelector('.container');
+const addBookList = document.querySelector('#form');
+const formSubmit = document.querySelector('#add-book');
+const separator = document.querySelector('.separator');
+
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -42,6 +52,8 @@ function showBooks() {
     `;
 
   clearFields();
+  contact.style.display = 'none';
+  addBookList.style.display = 'none';
 }
 
 function addBook(bookTitle, bookAuthor) {
@@ -69,19 +81,14 @@ form.addEventListener('submit', (e) => {
   bookItems.style.display = 'flex';
 });
 
-window.onload = showBooks();
-
-const displayBooks = document.querySelector('#display-list');
-const displayForm = document.querySelector('#display-form');
-const contact = document.querySelector('#contact');
-const displayContact = document.querySelector('#display-contact');
-const container = document.querySelector('.container');
-const addBookList = document.querySelector('#form');
-const formSubmit = document.querySelector('#add-book');
-const separator = document.querySelector('.separator');
+// creating date section
+const displayDate = document.querySelector('.date');
+const date = new Date();
+const today = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+const time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+displayDate.innerHTML = `${today.toString()} ${time}`;
 
 function displayFormonly() {
-  container.style.backgroundColor = '#ffcf33';
   addBookList.style.display = 'flex';
   sectionTitle.style.display = 'none';
   bookItems.style.display = 'none';
@@ -89,7 +96,6 @@ function displayFormonly() {
   separator.style.display = 'none';
 }
 function displayBookListonly() {
-  container.style.backgroundColor = '#ffa833';
   addBookList.style.display = 'none';
   contact.style.display = 'none';
   sectionTitle.style.display = 'block';
@@ -121,3 +127,4 @@ displayBooks.addEventListener('click', displayBookListonly);
 displayForm.addEventListener('click', displayFormonly);
 
 displayContact.addEventListener('click', displayContactonly);
+window.onload = showBooks();
