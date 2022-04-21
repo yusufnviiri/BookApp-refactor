@@ -9,20 +9,37 @@
   </head>
 
   <body>
-    <main>
-      <h1>All awesome books</h1>
+    <div class="container">
+      <header>
+        <nav id="nav-bar">
+          <h1>Awesome Books</h1>
+          <ul class="nav-list">
+            <li><a href="#book-list" id="display-list">List</a></li>
+            <li><a href="#form" id="display-form">Add new</a></li>
+            <li><a href="#contact" id="display-contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="date"></div>
+      </header>
+      <main id="main-content">
+        <h1 id="section-title">All awesome books</h1>
 
-      <section class="book-list"></section>
+        <section class="book-list" id="book-list"></section>
 
-      <div class="separator"></div>
+        <div class="separator"></div>
 
-      <form>
-        <h2>Add a new book</h2>
-        <input type="text" id="title" placeholder="Title" />
-        <input type="text" id="author" placeholder="Author" />
-        <button type="submit" id="add-book">Add</button>
-      </form>
-    </main>
+        <form id="form">
+          <h2>Add a new book</h2>
+          <input type="text" id="title" placeholder="Title" />
+          <input type="text" id="author" placeholder="Author" />
+          <button type="submit" id="add-book">Add</button>
+        </form>
+        <section id="contact"></section>
+      </main>
+      <footer>
+        <p>Copyright ......</p>
+      </footer>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
